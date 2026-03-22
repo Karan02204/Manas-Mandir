@@ -94,6 +94,7 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
           position: "absolute",
           left: 0,
           right: 0,
+          bottom: "10%", // Pushes the element to the bottom edge of the screen
           textAlign: "center",
           padding: "0 24px",
           display: "flex",
@@ -117,7 +118,7 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
         >
           Shri Manas Mandir
         </h1>
-        <a
+        <motion.a
           href="#temple-section"
           style={{
             display: "inline-block",
@@ -130,12 +131,16 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
             textDecoration: "none",
             background: "rgba(212,168,67,0.08)",
             backdropFilter: "blur(8px)",
-            transition: "all 0.3s ease",
             cursor: pointer6 === "auto" ? "pointer" : "default",
+          }}
+          whileHover={{
+            backgroundColor: "#D4A843",
+            color: "#0A0603",
+            transition: { duration: 0.3, ease: "easeOut" }
           }}
         >
           Visit Us
-        </a>
+        </motion.a>
       </motion.div>
     </div>
   );
