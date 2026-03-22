@@ -18,7 +18,7 @@ export default function Particles({ scrollYProgress }: { scrollYProgress: Motion
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
   const particles = useRef<Particle[]>([]);
-  const opacityMod = useRef(0);
+  const opacityMod = useRef(1); // Initialize fully visible so it populates immediately upon load
 
   // Initialize particles
   const initParticles = (width: number, height: number) => {
@@ -35,11 +35,11 @@ export default function Particles({ scrollYProgress }: { scrollYProgress: Motion
   };
 
   useMotionValueEvent(scrollYProgress, "change", (p) => {
-    // Particles most visible in Scene 3 (0.4-0.6) and Scene 4 (0.6-0.7)
-    if (p > 0.3 && p < 1.0) {
-      opacityMod.current = Math.min(1, Math.max(0, (p - 0.3) * 10));
+    // Keep brilliantly fully visible throughout the sequence, but softly fade out right before exiting to footer
+    if (p > 0.95) {
+      opacityMod.current = Math.max(0, 1 - (p - 0.95) * 20);
     } else {
-      opacityMod.current = 0;
+      opacityMod.current = 1;
     }
   });
 
