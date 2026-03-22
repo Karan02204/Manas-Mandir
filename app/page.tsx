@@ -48,9 +48,10 @@ export default function Home() {
             totalFrames={totalFrames}
           />
           
-          {/* Black cinematic vignete overlay over the frames */}
-          <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none mix-blend-multiply" />
-          <div className="absolute inset-0 z-[2] bg-black/30 pointer-events-none" />
+          {/* Cinematic lighting and vignette overlays */}
+          <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_center,rgba(212,168,67,0.15)_0%,transparent_60%)] pointer-events-none mix-blend-screen" />
+          <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.7)_100%)] pointer-events-none mix-blend-multiply" />
+          <div className="absolute inset-0 z-[2] bg-black/10 pointer-events-none" />
 
           <SceneOverlay scrollYProgress={scrollYProgress} />
           
