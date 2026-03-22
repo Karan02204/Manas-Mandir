@@ -18,9 +18,6 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
   // Trigger the final layout earlier at 80% (when the video locks) so the CTA sits comfortably on screen
   const op6 = useTransform(scrollYProgress, [0.82, 0.88, 1], [0, 1, 1]);
   const y6 = useTransform(scrollYProgress, [0.82, 0.88, 1], [20, 0, 0]);
-  
-  // Flash logic mathematically mapped so it fires purely strictly between text 3 and 6
-  const flashOp = useTransform(scrollYProgress, [0.78, 0.82, 0.88], [0, 0.4, 0]);
 
   // Prevent invisible elements from eating clicks
   const [pointer6, setPointer6] = useState<"auto" | "none">("none");
@@ -107,16 +104,7 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
           pointerEvents: pointer6
         }}
       >
-        <motion.div
-          style={{
-            opacity: flashOp,
-            position: "fixed", // Cover entire screen for flash
-            inset: 0,
-            background: "white",
-            pointerEvents: "none",
-            zIndex: -1,
-          }}
-        />
+
 
         <h1
           style={{

@@ -34,7 +34,7 @@ export default function Home() {
       <LoadingScreen progress={loadProgress} loaded={loaded} />
 
       {/* Scrollytelling Section */}
-      <div ref={containerRef} className="relative w-full" style={{ height: "700vh" }}>
+      <div ref={containerRef} className="relative w-full" style={{ height: "1200vh" }}>
         
         {/* Sticky Viewport */}
         <div className="sticky top-0 w-full h-screen overflow-hidden">
