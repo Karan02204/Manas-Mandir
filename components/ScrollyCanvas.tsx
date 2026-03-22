@@ -71,7 +71,8 @@ export default function ScrollyCanvas({ scrollYProgress, images, loaded, totalFr
     cancelAnimationFrame(rafRef.current);
     
     rafRef.current = requestAnimationFrame(() => {
-      let frameIndex = Math.floor(latest * totalFrames);
+      // Complete video precisely at 80% scroll. Remaining 20% scroll holds the last frame solid for CTA.
+      let frameIndex = Math.floor((latest / 0.8) * totalFrames);
       frameIndex = Math.max(0, Math.min(frameIndex, totalFrames - 1));
       
       if (frameIndex !== lastFrameRef.current) {
