@@ -34,9 +34,9 @@ export function useImageSequence(): UseImageSequenceResult {
     }
     setImages(imgs);
 
-    // Eagerly pre-load exclusively the first 10 sequence frames to aggressively prevent Vercel 
-    // concurrent networking from randomly starving the initial frame of priority bandwidth.
-    const INITIAL_FRAMES = 10;
+    // Give a larger buffer (40 frames instead of 10) to prevent black screens if the user scrolls rapidly!
+    // Since Cloudinary makes them weightless, this only costs an extra half-second.
+    const INITIAL_FRAMES = 40;
     for (let i = 1; i <= INITIAL_FRAMES; i++) {
       const img = imgs[i - 1];
       img.onload = img.onerror = () => {
@@ -57,7 +57,7 @@ export function useImageSequence(): UseImageSequenceResult {
   // gracefully ONLY after primary threshold unlocks and UI loading barrier is fully lifted!
   useEffect(() => {
     if (loaded && images.length === TOTAL_FRAMES) {
-      for (let i = 11; i <= TOTAL_FRAMES; i++) {
+      for (let i = 41; i <= TOTAL_FRAMES; i++) {
         // Automatically buffers securely into client CPU background cache via network idle-lane 
         images[i - 1].src = getFramePath(i);
       }
