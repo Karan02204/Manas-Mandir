@@ -19,6 +19,9 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
   const op6 = useTransform(scrollYProgress, [0.72, 0.78, 1], [0, 1, 1]);
   const y6 = useTransform(scrollYProgress, [0.72, 0.78, 1], [250, 0, 0]);
 
+  // Darken the background significantly exclusively when the final text mounts
+  const bgOp = useTransform(scrollYProgress, [0.72, 0.78, 1], [0, 0.6, 0.6]);
+
   // Prevent invisible elements from eating clicks
   const [pointer6, setPointer6] = useState<"auto" | "none">("none");
   useMotionValueEvent(op6, "change", (v) => setPointer6(v > 0.1 ? "auto" : "none"));
@@ -34,6 +37,17 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
         alignItems: "center",
       }}
     >
+      <motion.div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "black",
+          opacity: bgOp,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+
       {/* Scene 2: जय श्री राम */}
       <motion.div
         style={{ 
@@ -94,7 +108,6 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
           position: "absolute",
           left: 0,
           right: 0,
-          bottom: "10%", // Pushes the element to the bottom edge of the screen
           textAlign: "center",
           padding: "0 24px",
           display: "flex",
