@@ -17,7 +17,7 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
 
   // Trigger the final layout earlier at 70% (when the video perfectly resolves) so the CTA sits comfortably on screen
   const op6 = useTransform(scrollYProgress, [0.72, 0.78, 1], [0, 1, 1]);
-  const y6 = useTransform(scrollYProgress, [0.72, 0.78, 1], [20, 0, 0]);
+  const y6 = useTransform(scrollYProgress, [0.72, 0.78, 1], [250, 0, 0]);
 
   // Prevent invisible elements from eating clicks
   const [pointer6, setPointer6] = useState<"auto" | "none">("none");
