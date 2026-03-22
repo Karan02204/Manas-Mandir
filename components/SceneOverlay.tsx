@@ -12,12 +12,12 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
   const op2 = useTransform(scrollYProgress, [0.05, 0.15, 0.35, 0.45], [0, 1, 1, 0]);
   const y2 = useTransform(scrollYProgress, [0.05, 0.15, 0.35, 0.45], [20, 0, 0, -20]);
 
-  const op3 = useTransform(scrollYProgress, [0.45, 0.55, 0.70, 0.80], [0, 1, 1, 0]);
-  const y3 = useTransform(scrollYProgress, [0.45, 0.55, 0.70, 0.80], [20, 0, 0, -20]);
+  const op3 = useTransform(scrollYProgress, [0.42, 0.52, 0.62, 0.70], [0, 1, 1, 0]);
+  const y3 = useTransform(scrollYProgress, [0.42, 0.52, 0.62, 0.70], [20, 0, 0, -20]);
 
-  // Trigger the final layout earlier at 80% (when the video locks) so the CTA sits comfortably on screen
-  const op6 = useTransform(scrollYProgress, [0.82, 0.88, 1], [0, 1, 1]);
-  const y6 = useTransform(scrollYProgress, [0.82, 0.88, 1], [20, 0, 0]);
+  // Trigger the final layout earlier at 70% (when the video perfectly resolves) so the CTA sits comfortably on screen
+  const op6 = useTransform(scrollYProgress, [0.72, 0.78, 1], [0, 1, 1]);
+  const y6 = useTransform(scrollYProgress, [0.72, 0.78, 1], [20, 0, 0]);
 
   // Prevent invisible elements from eating clicks
   const [pointer6, setPointer6] = useState<"auto" | "none">("none");
