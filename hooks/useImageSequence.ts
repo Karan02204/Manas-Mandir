@@ -8,7 +8,7 @@ function getFramePath(index: number): string {
   const n = String(index).padStart(3, "0");
   // Hooked directly into Cloudinary CDN. f_auto and q_auto forcefully compress the raw PNGs 
   // into hyper-optimized streaming formats (like WebP) based on the user's browser seamlessly!
-  return `https://res.cloudinary.com/dcwryqkis/image/upload/f_auto,q_auto/hanuman-website/sequence/frame_${n}.png`;
+  return `https://res.cloudinary.com/dcwryqkis/image/upload/f_auto,q_auto/frame_${n}.png`;
 }
 
 export interface UseImageSequenceResult {
