@@ -27,7 +27,7 @@ export default function TempleSection() {
             transition={{ delay: 0.1 }}
             className="font-basgira text-4xl md:text-6xl text-[#F0C96B] mb-6 tracking-wider"
           >
-            Shri Manas Mandir
+            Hanuman Mandir
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}

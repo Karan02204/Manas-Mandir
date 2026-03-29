@@ -129,7 +129,7 @@ export default function SceneOverlay({ scrollYProgress }: SceneOverlayProps) {
             lineHeight: 1.1,
           }}
         >
-          Shri Manas Mandir
+          Hanuman Mandir
         </h1>
         <motion.a
           href="#temple-section"
